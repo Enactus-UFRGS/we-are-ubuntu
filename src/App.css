@@ -1,0 +1,19 @@
+body {
+  background-color: #F5F6F7;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.BaseContainer {
+  margin: auto;
+  max-width: 740px;
+  padding: 32px;
+}
