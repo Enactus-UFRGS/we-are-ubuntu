@@ -17,3 +17,25 @@ ul {
   max-width: 740px;
   padding: 32px;
 }
+
+div:focus{
+  outline: none;
+}
+
+div.ModalBase {
+  left: calc(100% / 2 - 360px);
+  right: calc(100% / 2 - 360px);
+  max-width: 740px;
+  padding: 32px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media(max-width: 740px){
+  div.ModalBase{
+    left: 0;
+    right: 0;
+  }
+}
