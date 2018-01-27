@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import Card, { CardContent, CardHeader } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Modal from 'material-ui/Modal'
+import green from 'material-ui/colors/green'
 
 const OpCard = ({title, description}) => (
   <Card>
-    <CardHeader style={{backgroundColor: "#61BF0F"}} title={title} />
+    <CardHeader style={{backgroundColor: green.A200}} title={title} />
     <CardContent>
       <Typography type="body2" style={{maxHeight: 300, overflow: 'scroll'}}>
         {description}

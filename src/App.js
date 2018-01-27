@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import OpportunityCard from './components/OpportunityCard'
-import Header from 'material-ui/AppBar'
-import Toolbar from 'material-ui/Toolbar'
-import Typography from 'material-ui/Typography'
 import Grid from 'material-ui/Grid'
 import Spinner from 'react-spinkit'
-
+import Header from './components/Header'
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
       opportunities: [],
       loading: false,
+      openLoginModal: false,
     }
   }
 
@@ -23,16 +21,18 @@ class App extends Component {
       .then(opportunities => this.setState({ opportunities, loading: false }))
   }
 
+  openLoginModal(){
+    this.setState({ openLoginModal: true })
+  }
+
+  closeLoginModal(){
+    this.setState({ openLoginModal: false })
+  }
+
   render() {
     return (
       <div>
-        <Header style={{backgroundColor: 'white'}} position="static">
-          <Toolbar>
-            <Typography type="title" >
-              We Are Ubuntu
-            </Typography>
-          </Toolbar>
-        </Header>
+        <Header />
         <div className="BaseContainer">
           <Grid container >
 
