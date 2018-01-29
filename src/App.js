@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import OpportunityCard from './components/OpportunityCard'
+import OpportunityCard from './components/OpportunityCard/OpportunityCard'
 import Grid from 'material-ui/Grid'
 import Spinner from 'react-spinkit'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 class App extends Component {
   constructor(props){
     super(props)
@@ -21,14 +21,6 @@ class App extends Component {
       .then(opportunities => this.setState({ opportunities, loading: false }))
   }
 
-  openLoginModal(){
-    this.setState({ openLoginModal: true })
-  }
-
-  closeLoginModal(){
-    this.setState({ openLoginModal: false })
-  }
-
   render() {
     return (
       <div>
@@ -39,7 +31,7 @@ class App extends Component {
             {this.state.loading ? <Grid item xs={12} style={{display: 'flex', justifyContent: 'center'}}><Spinner style={{height: 62, width: 62}} name="circle" color="green" /></Grid> : null}
             {this.state.opportunities.length === 0 && !this.state.loading ? <h1>Nenhuma oportunidade no momento</h1> : null}
             {this.state.opportunities.map((opp, index) => (
-              <Grid key={index} item md={6} sm={6} xs={12}>
+              <Grid key={index} item md={3} sm={6} xs={12}>
                 <OpportunityCard {...opp}/>
               </Grid>
             ))}

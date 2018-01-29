@@ -3,13 +3,14 @@ import Card, { CardContent, CardHeader } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Modal from 'material-ui/Modal'
 import green from 'material-ui/colors/green'
+import DetailedOpportunityCard from './DetailedOpportunityCard'
 
-const OpCard = ({title, description}) => (
-  <Card>
-    <CardHeader style={{backgroundColor: green.A200}} title={title} />
+const OpCard = ({title, shortDescription}) => (
+  <Card className="Clickable OpportunityCard">
+    <CardHeader style={{backgroundColor: green.A400}} title={title} />
     <CardContent>
-      <Typography type="body2" style={{maxHeight: 300, overflow: 'scroll'}}>
-        {description}
+      <Typography type="body2">
+        {shortDescription}
       </Typography>
     </CardContent>
   </Card>
@@ -35,7 +36,7 @@ export default class OpportunityCard extends Component {
     return (
       <div>
         <Modal open={this.state.showModal} onClose={() => this.closeModal()} className="ModalBase" >
-          <OpCard {...this.props}/>
+          <DetailedOpportunityCard {...this.props}/>
         </Modal>
         <div onClick={() => this.openModal()}>
           <OpCard {...this.props}  />
