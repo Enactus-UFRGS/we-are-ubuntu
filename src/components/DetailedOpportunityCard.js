@@ -6,10 +6,10 @@ import green from 'material-ui/colors/green'
 
 export default function OpportunityCard({ title, description }){
   return (
-    <Card>
-      <CardHeader style={{backgroundColor: green.A200}} title={title} />
-      <CardContent>
-        <Typography type="body2" style={{maxHeight: 300, overflow: 'scroll'}}>
+    <Card style={{ width: '100%', height: '100%', maxHeight: '50vh' }}>
+      <CardHeader style={{backgroundColor: green.A400}} title={title} />
+      <CardContent >
+        <Typography type="body2" style={{overflow: 'scroll'}}>
           {description}
         </Typography>
       </CardContent>
