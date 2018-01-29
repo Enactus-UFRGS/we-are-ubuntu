@@ -5,12 +5,12 @@ import Modal from 'material-ui/Modal'
 import green from 'material-ui/colors/green'
 import DetailedOpportunityCard from './DetailedOpportunityCard'
 
-const OpCard = ({title, description}) => (
-  <Card className="Clickable">
-    <CardHeader style={{backgroundColor: green.A200}} title={title} />
+const OpCard = ({title, shortDescription}) => (
+  <Card className="Clickable OpportunityCard">
+    <CardHeader style={{backgroundColor: green.A400}} title={title} />
     <CardContent>
       <Typography type="body2">
-        {description}
+        {shortDescription}
       </Typography>
     </CardContent>
   </Card>

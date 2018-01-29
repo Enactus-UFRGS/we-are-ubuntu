@@ -18,6 +18,12 @@ ul {
   padding: 32px;
 }
 
+@media(min-width: 740px){
+  .BaseContainer {
+    max-width: 100%;
+  }
+}
+
 div:focus{
   outline: none;
 }
@@ -29,7 +35,6 @@ div.ModalBase {
   padding: 32px;
   width: auto;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -42,4 +47,8 @@ div.ModalBase {
 
 .Clickable {
   cursor: pointer;
+}
+
+.OpportunityCard {
+  height: 200px;
 }
