@@ -21,11 +21,11 @@ export default class LoginForm extends Component {
       <Card>
         <CardHeader title={title} />
         <CardContent>
-          <div style={{display: 'flex', flexDirection: 'column'}}>
+          <form style={{display: 'flex', flexDirection: 'column'}}>
             <TextField value={this.state.email} onChange={e => this.setState({ email: e.target.value })} label="email" type="email"/>
             <TextField value={this.state.password} onChange={e => this.setState({ password: e.target.value })} label="senha" type="password"/>
             <Button onClick={() => login(this.state.email, this.state.password)} color="primary">Logar</Button>
-          </div>
+          </form>
         </CardContent>
       </Card>
     )

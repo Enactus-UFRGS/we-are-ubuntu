@@ -56,3 +56,7 @@ div.ModalBase {
 .OpportunityCard {
   height: 200px;
 }
+
+.AuthenticationForm > * {
+  margin-bottom: 10px;
+}

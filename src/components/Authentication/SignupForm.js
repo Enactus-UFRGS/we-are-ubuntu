@@ -3,6 +3,7 @@ import Card, { CardContent, CardHeader } from 'material-ui/Card'
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button'
 import firebase from 'firebase'
+import PersonAdd from 'material-ui-icons/PersonAdd'
 
 function signup(email, password){
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -18,9 +19,11 @@ export default class LoginForm extends Component {
   }
 
   render(){
+    const title = <div style={{display: 'flex', alignItems: 'center'}}><PersonAdd /> Cadastro</div>
+
     return (
       <Card>
-        <CardHeader title="Cadastro" />
+        <CardHeader title={title} />
         <CardContent>
           <div style={{display: 'flex', flexDirection: 'column'}}>
             <TextField value={this.state.email} onChange={e => this.setState({ email: e.target.value })} label="email" type="email"/>
