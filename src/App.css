@@ -34,8 +34,12 @@ div.ModalBase {
   max-width: 740px;
   padding: 32px;
   width: auto;
+  height: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
 }
 
 @media(max-width: 740px){

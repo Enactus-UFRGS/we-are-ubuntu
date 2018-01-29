@@ -7,6 +7,9 @@ import firebase from 'firebase'
 import IconButton from 'material-ui/IconButton'
 import AccountCircle from 'material-ui-icons/AccountCircle'
 import Menu, { MenuItem } from 'material-ui/Menu'
+import { ListItemIcon, ListItemText } from 'material-ui/List'
+import LaunchIcon from 'material-ui-icons/Launch'
+import PersonAdd from 'material-ui-icons/PersonAdd'
 
 function logout(){
   firebase.auth().signOut()
@@ -80,8 +83,18 @@ class Header extends Component {
         open={this.state.openMenu}
         onClose={() => this.closeMenu()}
       >
-        <MenuItem onClick={() => this.openLoginModal() }>Login</MenuItem>
-        <MenuItem onClick={() => this.openSignupModal() }>Cadastro</MenuItem>
+        <MenuItem onClick={() => this.openLoginModal() }>
+          <ListItemIcon>
+            <LaunchIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="Entrar" />
+        </MenuItem>
+        <MenuItem onClick={() => this.openSignupModal() }>
+          <ListItemIcon>
+            <PersonAdd />
+          </ListItemIcon>
+          <ListItemText inset primary="Cadastrar" />
+        </MenuItem>
       </Menu>
       <Modal open={this.state.openLoginModal} onClose={() => this.closeLoginModal()} className="ModalBase" >
         <LoginForm />
