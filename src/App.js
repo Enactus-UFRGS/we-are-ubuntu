@@ -21,14 +21,6 @@ class App extends Component {
       .then(opportunities => this.setState({ opportunities, loading: false }))
   }
 
-  openLoginModal(){
-    this.setState({ openLoginModal: true })
-  }
-
-  closeLoginModal(){
-    this.setState({ openLoginModal: false })
-  }
-
   render() {
     return (
       <div>

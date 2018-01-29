@@ -39,3 +39,7 @@ div.ModalBase {
     right: 0;
   }
 }
+
+.Clickable {
+  cursor: pointer;
+}
