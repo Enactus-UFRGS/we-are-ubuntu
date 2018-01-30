@@ -34,8 +34,12 @@ div.ModalBase {
   max-width: 740px;
   padding: 32px;
   width: auto;
+  height: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
 }
 
 @media(max-width: 740px){
@@ -50,5 +54,14 @@ div.ModalBase {
 }
 
 .OpportunityCard {
+  transition: 100ms linear;
   height: 200px;
+}
+
+.OpportunityCard:hover {
+  transform: scale(1.04);
+}
+
+.AuthenticationForm > * {
+  margin-bottom: 10px;
 }
