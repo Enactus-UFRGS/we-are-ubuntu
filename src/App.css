@@ -54,7 +54,12 @@ div.ModalBase {
 }
 
 .OpportunityCard {
+  transition: 100ms linear;
   height: 200px;
+}
+
+.OpportunityCard:hover {
+  transform: scale(1.04);
 }
 
 .AuthenticationForm > * {
