@@ -4,6 +4,17 @@ import OpportunityCard from './components/OpportunityCard/OpportunityCard'
 import Grid from 'material-ui/Grid'
 import Spinner from 'react-spinkit'
 import Header from './components/Header/Header'
+import Button from 'material-ui/Button'
+import AddIcon from 'material-ui-icons/Add'
+import firebase from 'firebase'
+import TextField from 'material-ui/TextField';
+import Dialog, {
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from 'material-ui/Dialog';
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -11,6 +22,7 @@ class App extends Component {
       opportunities: [],
       loading: false,
       openLoginModal: false,
+      logged: false
     }
   }
 
@@ -19,6 +31,20 @@ class App extends Component {
     fetch('https://we-are-ubuntu.firebaseio.com/opportunities.json')
       .then(response => response.json())
       .then(opportunities => this.setState({ opportunities, loading: false }))
+
+    setTimeout(() => {
+      firebase.auth().onAuthStateChanged(user => {
+        this.setState({ logged: !!user })
+      });
+    })
+  }
+
+  openFormDialog(){
+    this.setState({ openDialog: true })
+  }
+
+  closeFormDialog(){
+    this.setState({ openDialog: false })
   }
 
   render() {
@@ -37,6 +63,37 @@ class App extends Component {
             ))}
 
           </Grid>
+          { this.state.logged ?
+              ( <Button onClick={() => this.openFormDialog()} fab style={{position: 'fixed', right: 32, bottom: 32}} color="primary">
+                <AddIcon />
+              </Button> )
+            : null
+          }
+
+            <Dialog
+              open={this.state.openDialog}
+              onClose={() => this.closeFormDialog()}
+              aria-labelledby="form-dialog-title"
+            >
+            <DialogTitle id="form-dialog-title">Criar oportunidade</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Insira as informações para criar a oportunidade!
+              </DialogContentText>
+              <TextField required autoFocus margin="dense" id="name" label="Título da oportunidade" type="text" fullWidth />
+              <TextField required margin="dense" id="name" label="Descrição curta" type="text" fullWidth />
+              <TextField required margin="dense" id="name" label="Descrição longa" type="text" fullWidth multiline rows="6" rowsMax="6" />
+
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => this.closeFormDialog()} color="primary">
+                Cancelar
+              </Button>
+              <Button raised onClick={() => this.closeFormDialog()} color="primary">
+                Salvar
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
       </div>
     );
