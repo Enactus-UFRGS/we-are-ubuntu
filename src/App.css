@@ -101,3 +101,11 @@ div.ModalBase {
         flex-direction: column;
     }
 }
+
+.OpportunityCard:hover {
+  transform: scale(1.04);
+}
+
+.AuthenticationForm > * {
+  margin-bottom: 10px;
+}
