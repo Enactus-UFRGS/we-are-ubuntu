@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import Card, { CardContent, CardHeader } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Modal from 'material-ui/Modal'
-import green from 'material-ui/colors/green'
 import DetailedOpportunityCard from './DetailedOpportunityCard'
+import { OPPORTUNITY_TYPES_COLORS } from "../../model/opportunity";
 
-const OpCard = ({title, shortDescription}) => (
+const OpCard = ({title, shortDescription, type}) => (
   <Card className="Clickable OpportunityCard">
-    <CardHeader style={{backgroundColor: green.A400}} title={title} />
+    <CardHeader classes={{title: 'OpportunityCardHeader'}} style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[type]}} title={title} />
     <CardContent>
       <Typography type="body2">
         {shortDescription}

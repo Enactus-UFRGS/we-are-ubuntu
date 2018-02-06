@@ -110,7 +110,6 @@ class Header extends Component {
     if(this.state.user){
       return (
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <b>{this.state.user.displayName || this.state.user.email}</b>
           <Button style={{height: '100%', color: 'white'}} onClick={() => logout()}>Sair</Button>
         </div>
       )

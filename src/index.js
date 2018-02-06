@@ -5,6 +5,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { init } from './firebase'
 
-ReactDOM.render(<App />, document.getElementById('root'));
 init()
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
