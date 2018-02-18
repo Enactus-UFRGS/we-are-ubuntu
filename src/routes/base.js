@@ -10,6 +10,8 @@ import firebase from 'firebase'
 import { onValueChange } from '../model/opportunity'
 import OpportunityForm from '../components/OpportunityForm'
 import { OPPORTUNITY_TYPES_COLORS, OPPORTUNITY_TYPES } from "../model/opportunity";
+import { push } from 'react-router-redux'
+import { connect } from 'react-redux'
 
 class App extends Component {
   constructor(props) {
@@ -62,6 +64,14 @@ class App extends Component {
               <OpportunityCard { ...opp }/>
             </Grid>)) }
           </Grid>
+          { this.state.logged ? (<Button onClick={ () => this.props.push("/criar-oportunidade") } fab style={ {
+            position: 'fixed',
+            right: 32,
+            bottom: 32
+          } } color="primary">
+            <AddIcon/>
+          </Button>) : null }
+
           {this.props.children}
         </div>
       </div>
@@ -69,4 +79,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, {
+  push
+})(App);

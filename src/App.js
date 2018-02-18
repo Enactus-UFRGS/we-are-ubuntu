@@ -6,6 +6,8 @@ import { Route } from 'react-router'
 import { store, history } from './store'
 import Home from './routes/Home'
 import OpportunityDetail from './routes/OpportunityDetail'
+import OpportunityNew from './routes/OpportunityNew'
+
 import Signin from './routes/Signin'
 import Signup from './routes/Signup'
 
@@ -16,9 +18,10 @@ class App extends Component {
         <ConnectedRouter history={history}>
           <div>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/opportunity/:id" component={OpportunityDetail}/>
+            <Route exact path="/oportunidade/:id" component={OpportunityDetail}/>
             <Route exact path="/login" component={Signin}/>
             <Route exact path="/cadastro" component={Signup}/>
+            <Route exact path="/criar-oportunidade" component={OpportunityNew}/>
           </div>
         </ConnectedRouter>
       </Provider>

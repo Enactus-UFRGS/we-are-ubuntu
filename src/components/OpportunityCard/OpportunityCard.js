@@ -11,7 +11,7 @@ class OpportunityCard extends Component {
     const {title, shortDescription, type} = this.props
     return (
       <div>
-        <div onClick={() => this.props.push(`/opportunity/${this.props.id}`)}>
+        <div onClick={() => this.props.push(`/oportunidade/${this.props.id}`)}>
           <Card className="Clickable OpportunityCard">
             <CardHeader classes={{title: 'OpportunityCardHeader'}} style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[type]}} title={title} />
             <CardContent>
