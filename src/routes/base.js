@@ -25,7 +25,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.loading)
     return (
       <div>
         <Header/>
@@ -41,7 +40,7 @@ class App extends Component {
             </li>
           </ul>
           <Grid container>
-            { this.props.loading ? <Grid item xs={ 12 } style={ {
+            { this.props.loading && this.props.opportunities.length === 0 ? <Grid item xs={ 12 } style={ {
               display: 'flex',
               justifyContent: 'center'
             } }><Spinner
@@ -62,8 +61,6 @@ class App extends Component {
           } } color="primary">
             <AddIcon/>
           </Button>) : null }
-
-          {this.props.children}
         </div>
       </div>
   );
