@@ -7,25 +7,16 @@ import Header from '../components/Header/Header'
 import Button from 'material-ui/Button'
 import AddIcon from 'material-ui-icons/Add'
 import firebase from 'firebase'
-import { onValueChange } from '../model/opportunity'
 import { OPPORTUNITY_TYPES_COLORS, OPPORTUNITY_TYPES } from "../model/opportunity";
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
+import { getAllOpportunities } from '../actions/opportunities'
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      opportunities: [],
-      loading: true,
-      openLoginModal: false,
-    }
-    onValueChange(opportunities => {
-      this.setState({
-        opportunities,
-        loading: false
-      })
-    })
+    this.state = {}
+    this.props.getAllOpportunities()
     setTimeout(() => {
       firebase.auth().onAuthStateChanged(user => {
         this.setState({ logged: !!user })
@@ -49,7 +40,7 @@ class App extends Component {
             </li>
           </ul>
           <Grid container>
-            { this.state.loading ? <Grid item xs={ 12 } style={ {
+            { this.props.loading && this.props.opportunities.length === 0 ? <Grid item xs={ 12 } style={ {
               display: 'flex',
               justifyContent: 'center'
             } }><Spinner
@@ -57,9 +48,9 @@ class App extends Component {
                 height: 62,
                 width: 62
               } } name="circle" color="green"/></Grid> : null }
-            { this.state.opportunities.length === 0 && !this.state.loading ?
+            { this.props.opportunities.length === 0 && !this.props.loading ?
               <h1>Nenhuma oportunidade no momento</h1> : null }
-            { this.state.opportunities.map((opp, index) => (<Grid key={ index } item md={ 3 } sm={ 6 } xs={ 12 }>
+            { this.props.opportunities.map((opp, index) => (<Grid key={ index } item md={ 3 } sm={ 6 } xs={ 12 }>
               <OpportunityCard { ...opp }/>
             </Grid>)) }
           </Grid>
@@ -70,14 +61,16 @@ class App extends Component {
           } } color="primary">
             <AddIcon/>
           </Button>) : null }
-
-          {this.props.children}
         </div>
       </div>
   );
   }
 }
 
-export default connect(null, {
-  push
+export default connect(store => ({
+  opportunities: store.opportunities.list,
+  loading: store.opportunities.status.loading,
+}), {
+  push,
+  getAllOpportunities,
 })(App);
