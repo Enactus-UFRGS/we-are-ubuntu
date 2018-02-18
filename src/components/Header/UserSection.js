@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Button from 'material-ui/Button'
-import firebase from 'firebase'
 import IconButton from 'material-ui/IconButton'
 import AccountCircle from 'material-ui-icons/AccountCircle'
 import Menu, { MenuItem } from 'material-ui/Menu'

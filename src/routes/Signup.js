@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import Card, { CardContent, CardHeader } from 'material-ui/Card'
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button'
-import firebase from 'firebase'
 import PersonAdd from 'material-ui-icons/PersonAdd'
 import green from 'material-ui/colors/green'
 import { signup } from '../actions/auth'

@@ -2,7 +2,6 @@ import firebase from 'firebase'
 import {
   LOGIN_RESOLVED,
   LOGIN_REJECTED,
-  LOGIN_PENDING,
   SIGNUP_RESOLVED,
   SIGNUP_REJECTED,
   SIGNUP_PENDING,
@@ -12,8 +11,6 @@ import {
 } from '../actionNames/auth'
 import {
   FETCH_CURRENT_USER_RESOLVED,
-  FETCH_CURRENT_USER_REJECTED,
-  FETCH_CURRENT_USER_PENDING,
 } from '../actionNames/currentUser'
 
 export function login(email, password){
