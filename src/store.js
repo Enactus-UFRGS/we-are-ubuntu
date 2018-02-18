@@ -1,12 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-
 import createHistory from 'history/createBrowserHistory'
-import { Route } from 'react-router'
-
-import { routerReducer, routerMiddleware, push } from 'react-router-redux'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
 
 
 // Create a history of your choosing (we're using a browser history in this case)
