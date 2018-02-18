@@ -4,8 +4,6 @@ import { push } from 'react-router-redux'
 import Modal from 'material-ui/Modal'
 import { connect } from 'react-redux'
 import Card, { CardContent, CardHeader } from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
-import { OPPORTUNITY_TYPES_COLORS } from "../model/opportunity";
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button'
 import firebase from 'firebase'

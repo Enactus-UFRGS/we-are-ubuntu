@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Card, { CardContent, CardHeader } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
-import Modal from 'material-ui/Modal'
 import { OPPORTUNITY_TYPES_COLORS } from "../../model/opportunity";
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'

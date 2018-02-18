@@ -8,7 +8,6 @@ import Button from 'material-ui/Button'
 import AddIcon from 'material-ui-icons/Add'
 import firebase from 'firebase'
 import { onValueChange } from '../model/opportunity'
-import OpportunityForm from '../components/OpportunityForm'
 import { OPPORTUNITY_TYPES_COLORS, OPPORTUNITY_TYPES } from "../model/opportunity";
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'

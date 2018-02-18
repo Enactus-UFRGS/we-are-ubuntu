@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Provider } from 'react-redux'
-import { ConnectedRouter, push } from 'react-router-redux'
+import { ConnectedRouter } from 'react-router-redux'
 import { Route } from 'react-router'
 import { store, history } from './store'
 import Home from './routes/Home'
 import OpportunityDetail from './routes/OpportunityDetail'
 import OpportunityNew from './routes/OpportunityNew'
-
 import Signin from './routes/Signin'
 import Signup from './routes/Signup'
 
