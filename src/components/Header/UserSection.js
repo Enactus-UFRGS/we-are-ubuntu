@@ -9,27 +9,19 @@ import LaunchIcon from 'material-ui-icons/Launch'
 import PersonAdd from 'material-ui-icons/PersonAdd'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
-
-function logout(){
-  firebase.auth().signOut()
-}
+import { logout } from '../../actions/auth'
+import { listenToUserChanges } from '../../actions/currentUser'
 
 class Header extends Component {
   constructor(props){
     super(props)
     this.state = {
-      opportunities: [],
-      loading: false,
-      openLoginModal: false,
-      openSignupModal: false,
-      user: null,
       openMenu: false,
     }
-    setTimeout(() => {
-      firebase.auth().onAuthStateChanged(user => {
-        this.setState({ user })
-      });
-    })
+  }
+
+  componentWillMount(){
+    this.props.listenToUserChanges()
   }
 
   closeMenu(){
@@ -82,10 +74,13 @@ class Header extends Component {
   }
 
   render() {
-    if(this.state.user){
+    if(this.props.logged){
       return (
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <Button style={{height: '100%', color: 'white'}} onClick={() => logout()}>Sair</Button>
+          <div>
+            {this.props.user.name || this.props.user.email || 'Carregando...'}
+          </div>
+          <Button style={{height: '100%', color: 'white'}} onClick={() => this.props.logout()}>Sair</Button>
         </div>
       )
     }
@@ -95,6 +90,11 @@ class Header extends Component {
 
 
 
-export default connect(null, {
-  push
+export default connect(store => ({
+  logged: store.auth,
+  user: store.currentUser.data,
+}), {
+  push,
+  logout,
+  listenToUserChanges,
 })(Header);

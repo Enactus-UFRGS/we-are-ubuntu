@@ -8,13 +8,7 @@ import Button from 'material-ui/Button'
 import firebase from 'firebase'
 import PersonAdd from 'material-ui-icons/PersonAdd'
 import green from 'material-ui/colors/green'
-
-function signup(email, password){
-  return firebase.auth().createUserWithEmailAndPassword(email, password)
-    .catch(error => {
-      console.log(error)
-    })
-}
+import { signup } from '../actions/auth'
 
 class Signup extends Component {
   constructor(props){
@@ -33,7 +27,7 @@ class Signup extends Component {
             <div style={{display: 'flex', flexDirection: 'column'}}>
               <TextField margin="dense" fullWidth style={{marginBottom: 20}} value={this.state.email} onChange={e => this.setState({ email: e.target.value })} label="email" type="email"/>
               <TextField margin="dense" fullWidth style={{marginBottom: 20}} value={this.state.password} onChange={e => this.setState({ password: e.target.value })} label="senha" type="password"/>
-              <Button raised onClick={() => signup(this.state.email, this.state.password).then(() => this.props.push("/"))} style={{backgroundColor: green.A400}}>Cadastrar-se</Button>
+              <Button raised onClick={() => this.props.signup(this.state.email, this.state.password).then(() => this.props.push("/"))} style={{backgroundColor: green.A400}}>Cadastrar-se</Button>
             </div>
           </CardContent>
         </Card>
@@ -44,5 +38,6 @@ class Signup extends Component {
 
 
 export default connect(null, {
-  push
+  push,
+  signup,
 })(Signup)

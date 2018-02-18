@@ -4,7 +4,8 @@ import { routerReducer, routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 
 import opportunities from './reducers/opportunities'
-
+import currentUser from './reducers/currentUser'
+import auth from './reducers/auth'
 // Create a history of your choosing (we're using a browser history in this case)
 export const history = createHistory()
 
@@ -15,7 +16,9 @@ const middleware = routerMiddleware(history)
 // Also apply our middleware for navigating
 
 const reducers = {
-  opportunities
+  opportunities,
+  currentUser,
+  auth,
 }
 
 export const store = createStore(

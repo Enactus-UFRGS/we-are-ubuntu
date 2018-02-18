@@ -8,10 +8,7 @@ import Button from 'material-ui/Button'
 import firebase from 'firebase'
 import LaunchIcon from 'material-ui-icons/Launch'
 import green from 'material-ui/colors/green'
-
-function login(email, password){
-  return firebase.auth().signInWithEmailAndPassword(email, password)
-}
+import { login } from '../actions/auth'
 
 class Signin extends Component {
   constructor(props){
@@ -29,7 +26,7 @@ class Signin extends Component {
             <form style={{display: 'flex', flexDirection: 'column'}}>
               <TextField margin="dense" fullWidth style={{marginBottom: 20}} value={this.state.email} onChange={e => this.setState({ email: e.target.value })} label="email" type="email"/>
               <TextField margin="dense" fullWidth style={{marginBottom: 20}} value={this.state.password} onChange={e => this.setState({ password: e.target.value })} label="senha" type="password"/>
-              <Button raised onClick={() => login(this.state.email, this.state.password).then(() => this.props.push("/"))} style={{backgroundColor: green.A400}} >Entrar</Button>
+              <Button raised onClick={() => this.props.login(this.state.email, this.state.password).then(() => this.props.push("/"))} style={{backgroundColor: green.A400}} >Entrar</Button>
             </form>
           </CardContent>
         </Card>
@@ -40,5 +37,6 @@ class Signin extends Component {
 
 
 export default connect(null, {
-  push
+  push,
+  login,
 })(Signin)
