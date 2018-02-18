@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import Button from 'material-ui/Button'
-import LoginForm from '../Authentication/LoginForm'
-import SignupForm from '../Authentication/SignupForm'
-import Modal from 'material-ui/Modal'
 import firebase from 'firebase'
 import IconButton from 'material-ui/IconButton'
 import AccountCircle from 'material-ui-icons/AccountCircle'
@@ -10,6 +7,8 @@ import Menu, { MenuItem } from 'material-ui/Menu'
 import { ListItemIcon, ListItemText } from 'material-ui/List'
 import LaunchIcon from 'material-ui-icons/Launch'
 import PersonAdd from 'material-ui-icons/PersonAdd'
+import { push } from 'react-router-redux'
+import { connect } from 'react-redux'
 
 function logout(){
   firebase.auth().signOut()
@@ -31,24 +30,6 @@ class Header extends Component {
         this.setState({ user })
       });
     })
-  }
-
-  openLoginModal(){
-    this.closeMenu()
-    this.setState({ openLoginModal: true })
-  }
-
-  closeLoginModal(){
-    this.setState({ openLoginModal: false })
-  }
-
-  openSignupModal(){
-    this.closeMenu()
-    this.setState({ openSignupModal: true })
-  }
-
-  closeSignupModal(){
-    this.setState({ openSignupModal: false })
   }
 
   closeMenu(){
@@ -83,25 +64,19 @@ class Header extends Component {
         open={this.state.openMenu}
         onClose={() => this.closeMenu()}
       >
-        <MenuItem onClick={() => this.openLoginModal() }>
+        <MenuItem onClick={() => this.props.push("/login") }>
           <ListItemIcon>
             <LaunchIcon />
           </ListItemIcon>
           <ListItemText inset primary="Entrar" />
         </MenuItem>
-        <MenuItem onClick={() => this.openSignupModal() }>
+        <MenuItem onClick={() => this.props.push("/cadastro") }>
           <ListItemIcon>
             <PersonAdd />
           </ListItemIcon>
           <ListItemText inset primary="Cadastrar" />
         </MenuItem>
       </Menu>
-      <Modal open={this.state.openLoginModal} onClose={() => this.closeLoginModal()} className="ModalBase" >
-        <LoginForm />
-      </Modal>
-      <Modal open={this.state.openSignupModal} onClose={() => this.closeSignupModal()} className="ModalBase" >
-        <SignupForm />
-      </Modal>
     </div>
 
   }
@@ -120,4 +95,6 @@ class Header extends Component {
 
 
 
-export default Header;
+export default connect(null, {
+  push
+})(Header);

@@ -4,7 +4,6 @@ import purple from 'material-ui/colors/purple'
 
 const OPPORTUNITIES_DATABASE = 'opportunities'
 
-
 export const OPPORTUNITY_TYPES = {
   JOB: 'job',
   HOME: 'home',
@@ -29,12 +28,27 @@ export function create({title, shortDescription, description, type}){
   })
 }
 
+export function find(id){
+  return firebase.database().ref(`${OPPORTUNITIES_DATABASE}/${id}`).once('value').then(snap => snap.val())
+}
+
 export function getAll(){
-  return firebase.database().ref(OPPORTUNITIES_DATABASE).once('value').then(snap => snap.val()).then(Object.values)
+  return firebase
+    .database()
+    .ref(OPPORTUNITIES_DATABASE)
+    .once('value')
+    .then(normalizeList)
 }
 
 export function onValueChange(method){
-  firebase.database().ref(OPPORTUNITIES_DATABASE).on('value', snap => {
-    method(Object.values(snap.val()))
-  })
+  firebase
+    .database()
+    .ref(OPPORTUNITIES_DATABASE)
+    .on('value', snap => {
+      method(normalizeList(snap))
+    })
+}
+
+function normalizeList(snap){
+  return Object.entries(snap.val()).map(([id, opp]) => ({ ...opp, id }))
 }
