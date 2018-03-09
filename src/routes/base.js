@@ -54,11 +54,12 @@ class App extends Component {
               <OpportunityCard { ...opp }/>
             </Grid>)) }
           </Grid>
-          { this.state.logged ? (<Button onClick={ () => this.props.push("/criar-oportunidade") } fab style={ {
-            position: 'fixed',
-            right: 32,
-            bottom: 32
-          } } color="primary">
+          { this.state.logged ? (
+            <Button onClick={ () => this.props.push("/criar-oportunidade") } variant="fab" style={ {
+              position: 'fixed',
+              right: 32,
+              bottom: 32
+            } } color="primary">
             <AddIcon/>
           </Button>) : null }
         </div>

@@ -10,7 +10,7 @@ class Header extends Component {
     return (
       <MUIHeader  style={{backgroundColor: green.A700, flexDirection: 'row' ,justifyContent: 'space-between'}} position="static">
         <Toolbar>
-          <Typography type="title" style={{color: 'white'}} >
+          <Typography variant="title" style={{color: 'white'}} >
             We Are Ubuntu
           </Typography>
         </Toolbar>
