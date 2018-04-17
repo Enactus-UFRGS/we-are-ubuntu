@@ -8,9 +8,9 @@ import green from 'material-ui/colors/green'
 class Header extends Component {
   render() {
     return (
-      <MUIHeader  style={{backgroundColor: green.A700, flexDirection: 'row' ,justifyContent: 'space-between'}} position="static">
+      <MUIHeader  style={{backgroundColor: '#61bf0f', flexDirection: 'row' ,justifyContent: 'space-between'}} position="static">
         <Toolbar>
-          <Typography variant="title" style={{color: 'white'}} >
+          <Typography variant="title" style={{fontFamily: 'Abril Fatface', color: 'white'}} >
             We Are Ubuntu
           </Typography>
         </Toolbar>

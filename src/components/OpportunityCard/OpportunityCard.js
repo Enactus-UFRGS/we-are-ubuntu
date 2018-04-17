@@ -4,6 +4,7 @@ import Typography from 'material-ui/Typography'
 import { OPPORTUNITY_TYPES_COLORS } from "../../model/opportunity";
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
+import { crop } from '../../helpers/String'
 
 class OpportunityCard extends Component {
   render(){
@@ -15,7 +16,7 @@ class OpportunityCard extends Component {
             <CardHeader classes={{title: 'OpportunityCardHeader'}} style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[type]}} title={title} />
             <CardContent>
               <Typography type="body2">
-                {shortDescription}
+                {crop(shortDescription, 100) }
               </Typography>
             </CardContent>
           </Card>

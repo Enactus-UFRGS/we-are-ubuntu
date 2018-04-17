@@ -1,17 +1,20 @@
 import firebase from 'firebase'
 import blue from 'material-ui/colors/lightBlue'
-import purple from 'material-ui/colors/purple'
+import brown from 'material-ui/colors/brown'
+import teal from 'material-ui/colors/teal'
 
 const OPPORTUNITIES_DATABASE = 'opportunities'
 
 export const OPPORTUNITY_TYPES = {
   JOB: 'job',
   HOME: 'home',
+  EDUCATION: 'education',
 }
 
 export const OPPORTUNITY_TYPES_COLORS = {
-  [OPPORTUNITY_TYPES.HOME]: purple.A200,
-  [OPPORTUNITY_TYPES.JOB]: blue.A200,
+  [OPPORTUNITY_TYPES.HOME]: brown.A200,
+  [OPPORTUNITY_TYPES.JOB]: teal.A400,
+  [OPPORTUNITY_TYPES.EDUCATION]: blue[600]
 }
 
 Object.freeze(OPPORTUNITY_TYPES)

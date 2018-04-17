@@ -75,6 +75,7 @@ class OpportunityForm extends Component {
           >
             <FormControlLabel value={OPPORTUNITY_TYPES.JOB} control={<Radio />} label="Vaga de Emprego" />
             <FormControlLabel value={OPPORTUNITY_TYPES.HOME} control={<Radio />} label="Moradia/Dividir apartamento" />
+            <FormControlLabel value={OPPORTUNITY_TYPES.EDUCATION} control={<Radio />} label="Educação" />
           </RadioGroup>
         </FormControl>
         <TextField error={ errors.title } required onChange={ e => this.updateUpportunity('title', e.target.value) }

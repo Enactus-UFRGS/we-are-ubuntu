@@ -17,22 +17,27 @@ class OpportunityDetail extends Component {
   }
 
   componentWillMount(){
-    this.props.getAllOpportunities()
-    const urlParams = this.props.match.params
-    const opportunity = this.props.opportunities.find(({id}) => id === urlParams.id )
-    this.setState({ opportunity })
+    this.props.getAllOpportunities().then(() => {
+      const urlParams = this.props.match.params
+      const opportunity = this.props.opportunities.find(({id}) => id === urlParams.id )
+      this.setState({ opportunity })
+    })
   }
 
   render(){
-    const { title, description, type } = this.state.opportunity
+    const { title, description, type, shortDescription } = this.state.opportunity
     return (
       <Modal open={true} onClose={() => this.props.push("/")} className="ModalBase" >
         <Card style={{ width: '100%', height: '100%', maxHeight: '90vh' }}>
           <CardHeader classes={{title: 'OpportunityCardHeader'}} style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[type], maxHeight: '20vh', color: 'white'}} title={title} />
           <CardContent style={{maxHeight: '70vh', overflow: 'scroll'}}>
-            <Typography style={{whiteSpace: 'pre-wrap'}} type="body2">
-              {description}
-            </Typography>
+              <Typography style={{whiteSpace: 'pre-wrap'}} type="body2">
+                {shortDescription}
+              </Typography>
+              <hr />
+              <Typography style={{whiteSpace: 'pre-wrap'}} type="body2">
+                {description}
+              </Typography>
           </CardContent>
           <CardActions>
             <Button onClick={() => this.props.push("/")}>

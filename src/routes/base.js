@@ -31,15 +31,19 @@ class App extends Component {
         <div className="BaseContainer">
           <ul className="OpportunitiesLegend">
             <li>
-              <div style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[OPPORTUNITY_TYPES.JOB]}} className="LegendCircle"></div>
+              <div style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[OPPORTUNITY_TYPES.JOB]}} className="LegendCircle" />
               Vaga de emprego
             </li>
             <li>
-              <div style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[OPPORTUNITY_TYPES.HOME]}} className="LegendCircle"></div>
+              <div style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[OPPORTUNITY_TYPES.HOME]}} className="LegendCircle" />
               Oferta de moradia
             </li>
+            <li>
+              <div style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[OPPORTUNITY_TYPES.EDUCATION]}} className="LegendCircle" />
+              Educação
+            </li>
           </ul>
-          <Grid container>
+          <Grid container spacing={16}>
             { this.props.loading && this.props.opportunities.length === 0 ? <Grid item xs={ 12 } style={ {
               display: 'flex',
               justifyContent: 'center'
