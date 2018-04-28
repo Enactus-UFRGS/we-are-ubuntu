@@ -109,3 +109,44 @@ div.ModalBase {
 .AuthenticationForm > * {
   margin-bottom: 10px;
 }
+
+.Onboarding__NormalUser,
+.Onboarding__ImmigrantUser  {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.Onboarding__NormalUser > * ,
+.Onboarding__ImmigrantUser > * {
+    margin-bottom: 15px;
+}
+
+
+.Onboarding__UserTypeIdentification {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.Onboarding__UserTypeIdentification > * {
+    margin-bottom: 15px;
+}
+
+.UserTypeQuestion  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.UserTypeQuestion > * {
+    margin: 0 15px;
+}
+
+.UserTypeQuestion__Options {
+    display: flex;
+    flex-direction: row;
+}

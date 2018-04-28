@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField';
-import { create, OPPORTUNITY_TYPES } from '../model/opportunity'
+import { create, OPPORTUNITY_TYPES } from '../../model/opportunity'
 import Dialog, {
   DialogActions,
   DialogContent,
@@ -11,7 +11,7 @@ import Dialog, {
 import Radio, { RadioGroup } from 'material-ui/Radio';
 import { FormLabel, FormControl, FormControlLabel } from 'material-ui/Form';
 
-class OpportunityForm extends Component {
+class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -102,4 +102,4 @@ class OpportunityForm extends Component {
   }
 }
 
-export default OpportunityForm
+export default Form
