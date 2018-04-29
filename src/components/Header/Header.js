@@ -3,7 +3,6 @@ import MUIHeader from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
 import UserSection from './UserSection'
-import green from 'material-ui/colors/green'
 
 class Header extends Component {
   render() {

@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 import { logout } from '../../actions/auth'
 import { listenToUserChanges } from '../../actions/currentUser'
 
-class Header extends Component {
+class UserSection extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -96,4 +96,4 @@ export default connect(store => ({
   push,
   logout,
   listenToUserChanges,
-})(Header);
+})(UserSection);

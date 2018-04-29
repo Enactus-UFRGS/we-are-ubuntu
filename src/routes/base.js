@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Grid from 'material-ui/Grid'
 import Spinner from 'react-spinkit'
 import '../App.css';
-import OpportunityCard from '../components/OpportunityCard/OpportunityCard'
+import OpportunityCard from '../components/Opportunity/Card'
 import Header from '../components/Header/Header'
 import Button from 'material-ui/Button'
 import AddIcon from 'material-ui-icons/Add'
@@ -11,6 +11,7 @@ import { OPPORTUNITY_TYPES_COLORS, OPPORTUNITY_TYPES } from "../model/opportunit
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { getAllOpportunities } from '../actions/opportunities'
+import Onboarding from "../components/Onboarding";
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends Component {
       <div>
         <Header/>
         <div className="BaseContainer">
+          <Onboarding />
           <ul className="OpportunitiesLegend">
             <li>
               <div style={{backgroundColor: OPPORTUNITY_TYPES_COLORS[OPPORTUNITY_TYPES.JOB]}} className="LegendCircle" />
@@ -58,14 +60,6 @@ class App extends Component {
               <OpportunityCard { ...opp }/>
             </Grid>)) }
           </Grid>
-          { this.state.logged ? (
-            <Button onClick={ () => this.props.push("/criar-oportunidade") } variant="fab" style={ {
-              position: 'fixed',
-              right: 32,
-              bottom: 32
-            } } color="primary">
-            <AddIcon/>
-          </Button>) : null }
         </div>
       </div>
   );
