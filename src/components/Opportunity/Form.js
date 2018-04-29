@@ -67,7 +67,7 @@ class Form extends Component {
           Insira as informações para criar a oportunidade!
         </DialogContentText>
         <FormControl required error={errors.type} component="fieldset">
-          <FormLabel component="legend">Gender</FormLabel>
+          <FormLabel component="legend">Que oportunidade quer oferecer?</FormLabel>
           <RadioGroup
             aria-label="Tipo de Oportunidade"
             value={this.state.newOpportunity.type}

@@ -110,6 +110,10 @@ div.ModalBase {
   margin-bottom: 10px;
 }
 
+.Onboarding__Title {
+    text-align: center;
+}
+
 .Onboarding__NormalUser,
 .Onboarding__ImmigrantUser  {
     display: flex;

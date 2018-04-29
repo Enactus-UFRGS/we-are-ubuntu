@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Typography from 'material-ui/Typography'
 import Button from "material-ui/es/Button/Button";
+import Card, { CardContent, CardHeader } from 'material-ui/Card'
 import {connect} from 'react-redux';
 import { push } from 'react-router-redux';
 class Onboarding extends Component {
@@ -17,11 +18,6 @@ class Onboarding extends Component {
         if(this.state.userType == null){
             content = (
                 <div className="Onboarding__UserTypeIdentification">
-                    <div>
-                        <Typography variant="title">
-                            Seja bem-vindo(a) a plataforma do We Are Ubuntu!
-                        </Typography>
-                    </div>
                     <div className="UserTypeQuestion">
                         <Typography variant="subheading">
                             Você é um(a) imigrante?
@@ -65,7 +61,7 @@ class Onboarding extends Component {
                 <div className="Onboarding__NormalUser" >
                     <div>
                         <Typography variant="title">
-                            Quem bom que você veio nos conhecer!
+                            Que bom que você veio nos conhecer!
                         </Typography>
                     </div>
                     <div>
@@ -73,7 +69,7 @@ class Onboarding extends Component {
                             Se estiver interessado em ajudar, clique no botão abaixo e cadastre uma oportunidade, ou mande-nos um e-mail em <a href="mailto:wa.ubuntu@gmail.com">wa.ubuntu@gmail.com</a>!
                         </Typography>
                     </div>
-                    <Button onClick={ () => this.props.push("/criar-oportunidade") } disabled={!this.props.userIsLogged} onClick={() => this.loginAndCreateOpportunity()} className="OnboardingButton" variant="raised" color="primary">
+                    <Button onClick={ () => this.props.push("/criar-oportunidade") } disabled={!this.props.userIsLogged} className="OnboardingButton" variant="raised" color="primary">
                         Cadastrar uma oportunidade
                     </Button>
                     <Typography variant="caption" color="error">
@@ -84,9 +80,12 @@ class Onboarding extends Component {
         }
 
         return (
-            <div className="Onboarding">
-                {content}
-            </div>
+            <Card className="Onboarding">
+                <CardHeader className="Onboarding__Title" title="Seja bem-vindo(a) a plataforma do We Are Ubuntu!" />
+                <CardContent>
+                    {content}
+                </CardContent>
+            </Card>
         )
     }
 }
