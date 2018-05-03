@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Typography from 'material-ui/Typography'
-import Button from "material-ui/es/Button/Button";
+import Button from "material-ui/Button";
 import Card, { CardContent, CardHeader } from 'material-ui/Card'
 import {connect} from 'react-redux';
 import { push } from 'react-router-redux';
